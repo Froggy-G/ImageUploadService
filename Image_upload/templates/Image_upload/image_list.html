@@ -1,5 +1,7 @@
 {% extends 'Image_upload/base.html' %}
 
 {% block content %}
-    <h1>Все работает</h1>
+    {% for img in images %}
+        <img class="image" src="{{ img.image.url }}">
+    {% endfor %}
 {% endblock %}
