@@ -2,6 +2,6 @@
 
 {% block content %}
     {% for img in images %}
-        <img class="image" src="{{ img.image.url }}">
+        <a href="{% url 'image_page' pk=img.pk %}"><img class="image" src="{{ img.image.url }}"></a>
     {% endfor %}
 {% endblock %}
