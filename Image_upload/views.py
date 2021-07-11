@@ -19,9 +19,9 @@ def image_new(request):
     if request.method == "POST":
         form = ImageUploadForm(request.POST, request.FILES)
         if form.is_valid():
-            post = form.save(commit=False)
-            post.save()
-            return redirect('image_page', pk=post.pk)
+            image = form.save(commit=False)
+            image.save()
+            return redirect('image_page', pk=image.pk)
     else:
         form = ImageUploadForm()
     return render(request, 'Image_upload/image_new.html', {'form': form})
