@@ -5,4 +5,6 @@
     {% for img in images %}
         <a href="{% url 'image_page' pk=img.pk %}"><img class="image" src="{{ img.image.url }}"></a>
     {% endfor %}
+    <hr>
+    <h2><a href="{% url 'image_new' %}"><span>Добавить картинку</span></a></h2>
 {% endblock %}
