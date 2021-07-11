@@ -7,3 +7,18 @@
     max-width: 400px;
     max-height: 400px;
 }
+
+.header {
+    width: 300px;
+    font-size: 24pt;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.menu {
+    position: absolute;
+    text-align: right;
+    font-size: 24pt;
+    top: 20px;
+    right: 20px;
+}

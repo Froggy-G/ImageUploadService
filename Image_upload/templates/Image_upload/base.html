@@ -9,7 +9,12 @@
     <link rel="stylesheet" href="{% static 'css/image_upload.css' %}">
 </head>
 <body>
-    <a href="/"><h1>Image upload service</h1></a>
+    <div class="header">
+        <a href="/">Image upload service</a>
+    </div>
+    <div class="menu">
+        <a href="{% url 'image_new' %}"><span>Upload image</span></a>
+    </div>
     <hr>
     {% block content %}
     {% endblock %}
