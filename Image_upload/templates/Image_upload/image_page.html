@@ -1,7 +1,6 @@
 {% extends 'Image_upload/base.html' %}
 
 {% block content %}
-    <h2>{{ image.name }}</h2>
     <img class="image_solo" src="{{ image.image.url }}">
     <h2>Просмотров: {{ image.views }}</h2>
 {% endblock %}
