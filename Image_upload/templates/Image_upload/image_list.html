@@ -1,6 +1,7 @@
 {% extends 'Image_upload/base.html' %}
 
 {% block content %}
+    <h1>Все картинки:</h1>
     {% for img in images %}
         <a href="{% url 'image_page' pk=img.pk %}"><img class="image" src="{{ img.image.url }}"></a>
     {% endfor %}

@@ -1,5 +1,6 @@
 {% extends 'Image_upload/base.html' %}
 
 {% block content %}
-        <img class="image" src="{{ image.image.url }}">
+    <h2>{{ image.name }}</h2>
+    <img class="image" src="{{ image.image.url }}">
 {% endblock %}
