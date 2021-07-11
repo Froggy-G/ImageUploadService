@@ -2,7 +2,6 @@ from django.shortcuts import redirect, render
 from .models import Image
 from django.shortcuts import get_object_or_404
 from django.db.models import F
-from .forms import ImageUploadForm
 
 def image_list(request):
     images = Image.objects.all()
@@ -17,11 +16,7 @@ def image_page(request, pk):
 
 def image_new(request):
     if request.method == "POST":
-        form = ImageUploadForm(request.POST, request.FILES)
-        if form.is_valid():
-            image = form.save(commit=False)
+        for file in request.FILES.getlist('images'):
+            image = Image(image=file)
             image.save()
-            return redirect('image_page', pk=image.pk)
-    else:
-        form = ImageUploadForm()
-    return render(request, 'Image_upload/image_new.html', {'form': form})
+    return render(request, 'Image_upload/image_new.html', {})
