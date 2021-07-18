@@ -13,7 +13,13 @@
         <a href="/">Image upload service</a>
     </div>
     <div class="menu">
+        {% if user.is_authenticated %}
+        <span>Hello, {{ user.username }}</span>
+        <small>(<a href="{% url 'logout' %}">Logout</a>)</small>
         <a href="{% url 'image_new' %}"><span>Upload image</span></a>
+        {% else %}
+        <a href="{% url 'login' %}"><span>Sign in</span></a>
+        {% endif %}
     </div>
     <hr>
     {% block content %}

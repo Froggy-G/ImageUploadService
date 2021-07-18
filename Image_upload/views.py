@@ -2,6 +2,7 @@ from django.shortcuts import redirect, render
 from .models import Image
 from django.shortcuts import get_object_or_404
 from django.db.models import F
+from django.contrib.auth.decorators import login_required
 
 def image_list(request):
     images = Image.objects.all()
@@ -14,6 +15,7 @@ def image_page(request, pk):
     context = {'image': image}
     return render(request, 'Image_upload/image_page.html', context)
 
+@login_required
 def image_new(request):
     if request.method == "POST":
         for file in request.FILES.getlist('images'):
