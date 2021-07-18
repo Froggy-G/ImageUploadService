@@ -1,8 +1,10 @@
+from django.contrib.auth.models import User
 from django.shortcuts import redirect, render
 from .models import Image
 from django.shortcuts import get_object_or_404
 from django.db.models import F
 from django.contrib.auth.decorators import login_required
+from .forms import RegisterForm
 
 def image_list(request):
     images = Image.objects.all()
@@ -24,7 +26,26 @@ def image_new(request):
     return render(request, 'Image_upload/image_new.html', {})
 
 @login_required
-def post_remove(request, pk):
+def image_remove(request, pk):
     image = get_object_or_404(Image, pk=pk)
     image.delete()
     return redirect('image_list')
+
+def registration(request):
+    user = get_object_or_404(User)
+    if request.method == "POST":
+        form = RegisterForm(request.POST)
+        print(request.POST)
+        if form.is_valid():
+            user = form.save(commit=False)
+            user.username = request.POST['username']
+            user.password1 = request.POST['password1']
+            user.password2 = request.POST['password2']
+            user.save()
+            return redirect('registration_done')
+    else:
+        form = RegisterForm()
+    return render(request, 'registration/registration.html', {'form': form})
+
+def registration_done(request):
+    return render(request, 'registration/registration_done.html', {})
