@@ -32,7 +32,7 @@ def image_remove(request, pk):
     return redirect('image_list')
 
 def registration(request):
-    user = get_object_or_404(User)
+    user = User
     if request.method == "POST":
         form = RegisterForm(request.POST)
         print(request.POST)

@@ -3,7 +3,7 @@
 {% block content %}
     {% if user.is_authenticated %}
         <div>
-            <a href="{% url 'post_remove' pk=image.pk %}"><span>Delete image</span></a>
+            <a href="{% url 'image_remove' pk=image.pk %}"><span>Delete image</span></a>
         </div>
     {% endif %}
     <img class="image_solo" src="{{ image.image.url }}">
