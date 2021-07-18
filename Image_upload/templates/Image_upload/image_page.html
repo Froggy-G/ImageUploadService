@@ -1,6 +1,11 @@
 {% extends 'Image_upload/base.html' %}
 
 {% block content %}
+    {% if user.is_authenticated %}
+        <div>
+            <a href="{% url 'post_remove' pk=image.pk %}"><span>Delete image</span></a>
+        </div>
+    {% endif %}
     <img class="image_solo" src="{{ image.image.url }}">
     <h2>Views: {{ image.views }}</h2>
 {% endblock %}

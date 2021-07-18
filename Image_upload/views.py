@@ -22,3 +22,9 @@ def image_new(request):
             image = Image(image=file)
             image.save()
     return render(request, 'Image_upload/image_new.html', {})
+
+@login_required
+def post_remove(request, pk):
+    image = get_object_or_404(Image, pk=pk)
+    image.delete()
+    return redirect('image_list')
