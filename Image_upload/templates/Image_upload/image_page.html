@@ -1,7 +1,7 @@
 {% extends 'Image_upload/base.html' %}
 
 {% block content %}
-    {% if user.is_authenticated %}
+    {% if user.is_authenticated and user.is_superuser %}
         <div>
             <a href="{% url 'image_remove' pk=image.pk %}"><span>Delete image</span></a>
         </div>
