@@ -6,6 +6,11 @@
             <a href="{% url 'image_remove' pk=image.pk %}"><span>Delete image</span></a>
         </div>
     {% endif %}
+        <div>
+            {% for tag in image.tags.all %}
+                <h2>Tags: {{ tag.name }}</h2>
+            {% endfor %}
+        </div>
     <img class="image_solo" src="{{ image.image.url }}">
     <h2>Views: {{ image.views }}</h2>
 {% endblock %}
