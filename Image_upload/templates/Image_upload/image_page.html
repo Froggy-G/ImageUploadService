@@ -3,7 +3,7 @@
 {% block content %}
     {% if user.is_authenticated and user.is_superuser %}
         <div>
-            <a href="{% url 'image_remove' pk=image.pk %}"><span>Delete image</span></a>
+            <a class="margin" href="{% url 'image_remove' pk=image.pk %}"><span>Delete image</span></a>
         </div>
     {% endif %}
         <div>
@@ -12,5 +12,5 @@
             {% endfor %}
         </div>
     <img class="image_solo" src="{{ image.image.url }}">
-    <h2>Views: {{ image.views }}</h2>
+    <h2 class="margin">Views: {{ image.views }}</h2>
 {% endblock %}
