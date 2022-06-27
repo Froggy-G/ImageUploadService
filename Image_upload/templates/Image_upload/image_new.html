@@ -1,0 +1,11 @@
+{% extends 'Image_upload/base.html' %}
+
+{% block content %}
+    <div class="margin">
+        <h1>Upload images:</h1>
+            <form method="POST" autocomplete="off" enctype="multipart/form-data">{% csrf_token %}
+                <input type="file" name="images" multiple><br><br>
+                <button type="submit">Save</button>
+            </form>
+    </div>
+{% endblock %}

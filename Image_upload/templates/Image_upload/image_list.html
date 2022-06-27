@@ -1,0 +1,10 @@
+{% extends 'Image_upload/base.html' %}
+
+{% block content %}
+    <h1 class="margin-10">All images:</h1>
+    {% for img in images %}
+        <a class="margin-10" href="{% url 'image_page' pk=img.pk %}"><img class="image" src="{{ img.image.url }}"></a>
+    {% endfor %}
+    <hr>
+    
+{% endblock %}

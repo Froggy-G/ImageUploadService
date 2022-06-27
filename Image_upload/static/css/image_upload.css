@@ -1,0 +1,34 @@
+.image {
+    width: 105px;
+    height: 105px;
+}
+
+.image_solo {
+    max-width: 400px;
+    max-height: 400px;
+    margin-left: 20px;
+}
+
+.header {
+    width: 350px;
+    font-size: 24pt;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 20px;
+}
+
+.menu {
+    position: absolute;
+    text-align: right;
+    font-size: 24pt;
+    top: 20px;
+    right: 20px;
+}
+
+.margin {
+    margin-left: 20px;
+}
+
+.margin-10 {
+    margin-left: 10px;
+}
